@@ -9,6 +9,24 @@
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen> rdf:type owl:Ontology .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#hasBase
+:hasBase rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :hasIngredients .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#hasIngredients
+:hasIngredients rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#hasTopping
+:hasTopping rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :hasIngredients .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -25,32 +43,113 @@
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Ramen
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Ramen> rdf:type owl:Class .
+<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Ramen> rdf:type owl:Class ;
+                                                                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Food> .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> rdf:type owl:Class .
+<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> rdf:type owl:Class ;
+                                                                       rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Food> .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> rdf:type owl:Class .
+<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> rdf:type owl:Class ;
+                                                                          rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Food> .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Side
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Side> rdf:type owl:Class .
 
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ChickenBroth
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BambooTopping
+:BambooTopping rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BoiledEggTopping
+:BoiledEggTopping rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ChickenTopping
+:ChickenTopping rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ChilliSauceTopping
+:ChilliSauceTopping rdf:type owl:Class ;
+                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#CornTopping
+:CornTopping rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishCakeTopping
+:FishCakeTopping rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#GrilledChickenTopping
+:GrilledChickenTopping rdf:type owl:Class ;
+                       rdfs:subClassOf :ChickenTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MarinatedBoiledEggTopping
+:MarinatedBoiledEggTopping rdf:type owl:Class ;
+                           rdfs:subClassOf :BoiledEggTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#NoriSheetsTopping
+:NoriSheetsTopping rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#NoukouChickenRamen
+:NoukouChickenRamen rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Ramen>
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasTopping ;
+                                                                 owl:someValuesFrom :ChickenTopping
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Ramen> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SeaweedTopping
+:SeaweedTopping rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ShrimpSkewerTopping
+:ShrimpSkewerTopping rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SoftBoiledEggTopping
+:SoftBoiledEggTopping rdf:type owl:Class ;
+                      rdfs:subClassOf :BoiledEggTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SpringOnionsTopping
+:SpringOnionsTopping rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ChickenBroth
 :ChickenBroth rdf:type owl:Class ;
               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
 
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MisoRamen
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/MisoRamen
 :MisoRamen rdf:type owl:Class ;
            rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
 
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ShoyuRamen
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ShoyuRamen
 :ShoyuRamen rdf:type owl:Class ;
             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
 

@@ -50,7 +50,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     rolesByElement['d0'] = []
     initialConcept = elFactory.getConceptName(className)
 
-    # i don't like this but atm <concept> in <set> does not work
     conceptsByElement['d0'].append(initialConcept)
     dcounter = 1
 
@@ -154,12 +153,16 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                                 updatedConcepts.append(newConcept)
                                 changed = True
                         conceptsByElement[d] = updatedConcepts
+            # disj rule
+
+            # only rule
 
         for elem in possibleNewElements.keys():
             conceptsByElement[elem] = possibleNewElements[elem]
 
     conceptNames = ontology.getConceptNames()
     for concept in conceptsByElement['d0']:
+        #print(formatter.format(concept))
         if (concept in conceptNames) or (concept == elFactory.getTop()):
             #to verify if we want to add also non 'named' concepts
             print(formatter.format(concept))
@@ -167,43 +170,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
 gateway = JavaGateway()
 #subsumers(sys.argv[1],sys.argv[2])
-#subsumers('vuramen.ttl', 'NoukouChickenRamen')
+#subsumers('vuramen.ttl', 'VeganTofuMisoRamen')
 subsumers()
-# if role not in roles.keys():
-#     # this is a 'new' role
-#     roles[role] = []
-#
-# introduced = False
-#
-# # look if already-present elements are suitable candidates
-# for r_succ_candidate in conceptsByElement.keys():
-#     if filler in conceptsByElement[r_succ_candidate] and not introduced:
-#         # there is an element e with initial concept C --- need to verify if this works as intended
-#         if ((d, r_succ_candidate) not in roles[role]):
-#             roles[role].append((d, r_succ_candidate))
-#             changed = True
-#             print(f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to {r_succ_candidate}')
-#         introduced = True
 
-# if not introduced:
-#     r_successor = f'd{dcounter}'
-#     # append a new r successor to d, assign the concept as initial concept
-#     possibleNewElements[r_successor] = {filler}
-#     dcounter += 1
-#     changed = True
-#     roles[role].append((d, r_successor))
-#     print(f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to NEW element d{dcounter-1}')
-
-# for concept in allConcepts:
-#     print(concept)
-#     conceptInterp[concept.conceptNames()] = {'concept':concept, 'elements':[]}
-#
-# inputConcept = elFactory.getConceptName(className)
-# print(inputConcept.conceptNames())
-# if  inputConcept.conceptNames() not in conceptInterp.keys():
-#     print('something is wrong')
-#     return
-# else:
-#     conceptInterp[inputConcept.conceptNames()]['concept'] = inputConcept
-#     conceptInterp[inputConcept.conceptNames()]['element'].append(f'd{dcounter}')
-#     dcounter +=1

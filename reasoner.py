@@ -6,15 +6,9 @@ import copy
 
 def load_onto(ontologyName):
     parser = gateway.getOWLParser()
-    formatter = gateway.getSimpleDLFormatter()
-    #print("Loading the ontology...")
 
     # load an ontology from a file
     ontology = parser.parseFile(ontologyName)
-
-    #print("Loaded the ontology!")
-
-    #print("Converting to binary conjunctions")
     gateway.convertToBinaryConjunctions(ontology)
 
     return ontology
@@ -23,8 +17,6 @@ def load_onto(ontologyName):
 def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     # IMPORTANT
     # remember to have "" in the class name (NEED TO append FORMAT CHECK)
-
-    #print(f'Finding the subsumers of class {className} in ontology {ontologyName}')
 
     elFactory = gateway.getELFactory()
     ontology = load_onto(ontologyName)
@@ -53,7 +45,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     # dictionary for interpeting the concepts
     conceptsByElement = dict()
     rolesByElement = dict()
-    roles = dict()
 
     conceptsByElement['d0'] = []
     rolesByElement['d0'] = []
@@ -66,16 +57,14 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     changed = True
 
     while changed:
-        #print('---')
         changed = False
 
         # apply all the rules
-        possibleNewElements = dict()  # this if new elements are appended
+        possibleNewElements = dict()  # this if new elements are created. Cannot create new 'keys' while looping
         for d in conceptsByElement.keys():
             updatedConcepts = conceptsByElement[d].copy()
             # Top-rule
             if elFactory.getTop() not in conceptsByElement[d]:
-                #print(f'top-rule: appending Top to {d}')
                 updatedConcepts.append(elFactory.getTop())
                 changed = True
 
@@ -83,7 +72,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             for gci in GCIaxioms:
                 if (gci.lhs() in conceptsByElement[d] and
                         gci.rhs() not in conceptsByElement[d]):
-                    #print(f'GCI-rule: appending {formatter.format(gci.rhs())} to {d}')
                     updatedConcepts.append(gci.rhs())
                     changed = True
 
@@ -92,14 +80,17 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                 if c.getClass().getSimpleName() == "ConceptConjunction":
                     if c.getConjuncts()[0] not in conceptsByElement[d]:
-                        #print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[0])} to {d}')
                         updatedConcepts.append(c.getConjuncts()[0])
                         changed = True
                     if c.getConjuncts()[1] not in conceptsByElement[d]:
-                        #print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[1])} to {d}')
                         updatedConcepts.append(c.getConjuncts()[1])
                         changed = True
 
+            #this ensures that new info from the rules application are immediately integrated
+            # - but maybe slows down the process
+            # - opt 1: maybe update only at the end, this will requires more loops but less assignments
+            # - opt 2: loop on find a way to loop only on a 'snapshot' shallow copy of the updatedConcepts, while actually changing the
+            # original -- probably doesnt work
             conceptsByElement[d] = updatedConcepts
             updatedConcepts = conceptsByElement[d].copy()
             # n-rule 2
@@ -107,7 +98,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                 conj = elFactory.getConjunction(c1, c2)
                 if conj in allConcepts and conj not in conceptsByElement[d]:
-                    #print(f'CONJ-rule2: appending {formatter.format(conj)}')
                     updatedConcepts.append(conj)
                     changed = True
 
@@ -115,7 +105,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             updatedConcepts = conceptsByElement[d].copy()
 
             #E-rule 1
-            #optimization-wise, not ideal, but each rule might be changing hte concepts
             for c in conceptsByElement[d]:
                 if c.getClass().getSimpleName() == "ExistentialRoleRestriction":
 
@@ -124,6 +113,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                     introduced = False
 
+                    #this is if no roles have yet been assigned to d, initialize the list to avoid out of bound
                     if d not in rolesByElement.keys():
                         rolesByElement[d] = []
                     # look if already-present elements are suitable candidates
@@ -133,7 +123,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                             if (role, r_succ_candidate) not in rolesByElement[d]:
                                 rolesByElement[d].append((role, r_succ_candidate))
                                 changed = True
-                                #print(f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to {r_succ_candidate}')
                             introduced = True
 
                     if not introduced:
@@ -143,7 +132,6 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                         dcounter += 1
                         changed = True
                         rolesByElement[d].append((role, r_successor))
-                        #print( f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to NEW element d{dcounter - 1}')
 
             conceptsByElement[d] = updatedConcepts
             updatedConcepts = conceptsByElement[d].copy()
@@ -159,6 +147,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                                 changed = True
                         conceptsByElement[d] = updatedConcepts
                     else:
+                        #this is because a new element might have been introduced, but the dict has not been updated yet
                         for r_succ_concept in possibleNewElements[r_succ_candidate]:
                             newConcept = elFactory.getExistentialRoleRestriction(role, r_succ_concept)
                             if newConcept not in conceptsByElement[d] and newConcept in allConcepts:
@@ -167,12 +156,12 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                         conceptsByElement[d] = updatedConcepts
 
         for elem in possibleNewElements.keys():
-            # probably updates need to happen before
             conceptsByElement[elem] = possibleNewElements[elem]
 
     conceptNames = ontology.getConceptNames()
     for concept in conceptsByElement['d0']:
         if (concept in conceptNames) or (concept == elFactory.getTop()):
+            #to verify if we want to add also non 'named' concepts
             print(formatter.format(concept))
 
 

@@ -4,13 +4,17 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/> .
+@base <http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen> .
 
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#hasSpiceLevel
+:hasSpiceLevel rdf:type owl:ObjectProperty .
+
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/hasBase
 :hasBase rdf:type owl:ObjectProperty ;
@@ -58,6 +62,10 @@
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> rdf:type owl:Class ;
                                                                         rdfs:subClassOf :Food ,
                                                                                         [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :hasSpiceLevel ;
+                                                                                          owl:someValuesFrom :SpiceLevel
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
                                                                                           owl:onProperty :hasBase ;
                                                                                           owl:someValuesFrom <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase>
                                                                                         ] ,
@@ -78,6 +86,1006 @@
                                                                   rdfs:subClassOf :Food .
 
 
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#AsparagusTopping
+:AsparagusTopping rdf:type owl:Class ;
+                  rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BabyCornTopping
+:BabyCornTopping rdf:type owl:Class ;
+                 rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BellPepperTopping
+:BellPepperTopping rdf:type owl:Class ;
+                   rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ButatamaMisoRamen
+:ButatamaMisoRamen rdf:type owl:Class ;
+                   rdfs:subClassOf :NamedRamen ,
+                                   [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                            owl:complementOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasSpiceLevel ;
+                                                                               owl:allValuesFrom :Mild
+                                                                             ]
+                                                          ]
+                                                          [ rdf:type owl:Class ;
+                                                            owl:complementOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasSpiceLevel ;
+                                                                               owl:allValuesFrom :Spicy
+                                                                             ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasSpiceLevel ;
+                                                            owl:someValuesFrom :SpiceLevel
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ,
+                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:someValuesFrom :MisoBroth
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:allValuesFrom :MisoBroth
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :PorkSlicesTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :BambooTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :NoriSheetsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :SoftBoiledEggTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :SpringOnionsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :VegetablesTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :PorkSlicesTopping
+                                                                       :BambooTopping
+                                                                       :NoriSheetsTopping
+                                                                       :SoftBoiledEggTopping
+                                                                       :SpringOnionsTopping
+                                                                       :VegetablesTopping
+                                                                     )
+                                                       ]
+                                   ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ChickenSchnitzelTopping
+:ChickenSchnitzelTopping rdf:type owl:Class ;
+                         rdfs:subClassOf :ChickenTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#CorianderTopping
+:CorianderTopping rdf:type owl:Class ;
+                  rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#EggplantTopping
+:EggplantTopping rdf:type owl:Class ;
+                 rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishTagRamen
+:FishTagRamen rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry>
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasIngredient ;
+                                                           owl:someValuesFrom :FishIngredient
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
+              rdfs:comment "Ramen dishes that includes Fish Toppings (to earn a non-vegan tag the base is not considered)" .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishTopping
+:FishTopping rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FriedChickenTopping
+:FriedChickenTopping rdf:type owl:Class ;
+                     rdfs:subClassOf :ChickenTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#KaraEbiMisoRamen
+:KaraEbiMisoRamen rdf:type owl:Class ;
+                  rdfs:subClassOf :NamedRamen ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasBase ;
+                                                           owl:someValuesFrom :MisoBroth
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasBase ;
+                                                           owl:allValuesFrom :MisoBroth
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :CorianderTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :FriedChickenTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :BambooTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :LeekTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :MarinatedBoiledEggTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :NoriSheetsTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :ShrimpSkewerTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :SpringOnionsTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :VegetablesTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasSpiceLevel ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:complementOf :Mild
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :CorianderTopping
+                                                                      :FriedChickenTopping
+                                                                      :BambooTopping
+                                                                      :LeekTopping
+                                                                      :MarinatedBoiledEggTopping
+                                                                      :NoriSheetsTopping
+                                                                      :ShrimpSkewerTopping
+                                                                      :SpringOnionsTopping
+                                                                      :VegetablesTopping
+                                                                    )
+                                                      ]
+                                  ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MalaButatamaRamen
+:MalaButatamaRamen rdf:type owl:Class ;
+                   rdfs:subClassOf :NamedRamen ,
+                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:someValuesFrom :ChickenBroth
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:allValuesFrom :ChickenBroth
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :CorianderTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :PorkSlicesTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :BambooTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :LeekTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :MarinatedBoiledEggTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :NoriSheetsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :SpringOnionsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasSpiceLevel ;
+                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                         owl:complementOf :Mild
+                                                       ]
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :CorianderTopping
+                                                                       :PorkSlicesTopping
+                                                                       :BambooTopping
+                                                                       :LeekTopping
+                                                                       :MarinatedBoiledEggTopping
+                                                                       :NoriSheetsTopping
+                                                                       :SpringOnionsTopping
+                                                                     )
+                                                       ]
+                                   ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MalaChickenRamen
+:MalaChickenRamen rdf:type owl:Class ;
+                  rdfs:subClassOf :NamedRamen ,
+                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasBase ;
+                                                           owl:someValuesFrom :ChickenBroth
+                                                         ]
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasBase ;
+                                                           owl:allValuesFrom :ChickenBroth
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :CorianderTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :BambooTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :FriedOnionsTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :GrilledChickenTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :LeekTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :MarinatedBoiledEggTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :NoriSheetsTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :SpringOnionsTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:someValuesFrom :VegetablesTopping
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasSpiceLevel ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:complementOf :Mild
+                                                      ]
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStandardTopping ;
+                                    owl:allValuesFrom [ rdf:type owl:Class ;
+                                                        owl:unionOf ( :CorianderTopping
+                                                                      :BambooTopping
+                                                                      :FriedOnionsTopping
+                                                                      :GrilledChickenTopping
+                                                                      :LeekTopping
+                                                                      :MarinatedBoiledEggTopping
+                                                                      :NoriSheetsTopping
+                                                                      :SpringOnionsTopping
+                                                                      :VegetablesTopping
+                                                                    )
+                                                      ]
+                                  ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#Mild
+:Mild rdf:type owl:Class ;
+      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                   owl:complementOf [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasSpiceLevel ;
+                                                                      owl:allValuesFrom :Spicy
+                                                                    ]
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasSpiceLevel ;
+                                                   owl:someValuesFrom :SpiceLevel
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] ,
+                          [ rdf:type owl:Class ;
+                            owl:complementOf [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasSpiceLevel ;
+                                               owl:allValuesFrom :Spicy
+                                             ]
+                          ] ;
+      rdfs:subClassOf :SpiceLevel .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MisoBroth
+:MisoBroth rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MushroomsTopping
+:MushroomsTopping rdf:type owl:Class ;
+                  rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#PorkSlicesTopping
+:PorkSlicesTopping rdf:type owl:Class ;
+                   rdfs:subClassOf :PorkTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#PorkTagRamen
+:PorkTagRamen rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry>
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasIngredient ;
+                                                           owl:someValuesFrom :PorkTopping
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
+              rdfs:comment "Ramen dishes that include Pork Toppings (to earn a non-vegan tag the base is not considered)" .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#PorkTopping
+:PorkTopping rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                             :MeatIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SapporoEbiMisoRamen
+:SapporoEbiMisoRamen rdf:type owl:Class ;
+                     rdfs:subClassOf :NamedRamen ,
+                                     [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasBase ;
+                                                              owl:someValuesFrom :MisoBroth
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasBase ;
+                                                              owl:allValuesFrom :MisoBroth
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :BambooTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :CornTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :FishCakeTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :LeekTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :MarinatedBoiledEggTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :NoriSheetsTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :SeaweedTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :ShrimpSkewerTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :SpringOnionsTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :VegetablesTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSpiceLevel ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:complementOf :Spicy
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :BambooTopping
+                                                                         :CornTopping
+                                                                         :FishCakeTopping
+                                                                         :LeekTopping
+                                                                         :MarinatedBoiledEggTopping
+                                                                         :NoriSheetsTopping
+                                                                         :SeaweedTopping
+                                                                         :ShrimpSkewerTopping
+                                                                         :SpringOnionsTopping
+                                                                         :VegetablesTopping
+                                                                       )
+                                                         ]
+                                     ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ShoyuBroth
+:ShoyuBroth rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SpiceLevel
+:SpiceLevel rdf:type owl:Class ;
+            rdfs:subClassOf :DishIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#Spicy
+:Spicy rdf:type owl:Class ;
+       owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                    owl:complementOf [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasSpiceLevel ;
+                                                                       owl:allValuesFrom :Mild
+                                                                     ]
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :hasSpiceLevel ;
+                                                    owl:someValuesFrom :SpiceLevel
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ,
+                           [ rdf:type owl:Class ;
+                             owl:complementOf [ rdf:type owl:Restriction ;
+                                                owl:onProperty :hasSpiceLevel ;
+                                                owl:allValuesFrom :Mild
+                                              ]
+                           ] ;
+       rdfs:subClassOf :SpiceLevel .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SweetPotatoTopping
+:SweetPotatoTopping rdf:type owl:Class ;
+                    rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#TeriyakiChickenTopping
+:TeriyakiChickenTopping rdf:type owl:Class ;
+                        rdfs:subClassOf :ChickenTopping .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#TeriyakiMisoRamen
+:TeriyakiMisoRamen rdf:type owl:Class ;
+                   rdfs:subClassOf :NamedRamen ,
+                                   [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                            owl:complementOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasSpiceLevel ;
+                                                                               owl:allValuesFrom :Mild
+                                                                             ]
+                                                          ]
+                                                          [ rdf:type owl:Class ;
+                                                            owl:complementOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasSpiceLevel ;
+                                                                               owl:allValuesFrom :Spicy
+                                                                             ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasSpiceLevel ;
+                                                            owl:someValuesFrom :SpiceLevel
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ,
+                                   [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:someValuesFrom :MisoBroth
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:allValuesFrom :MisoBroth
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :TeriyakiChickenTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :BambooTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :FriedOnionsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :LeekTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :MarinatedBoiledEggTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :SpringOnionsTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:someValuesFrom :VegetablesTopping
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasStandardTopping ;
+                                     owl:allValuesFrom [ rdf:type owl:Class ;
+                                                         owl:unionOf ( :TeriyakiChickenTopping
+                                                                       :BambooTopping
+                                                                       :FriedOnionsTopping
+                                                                       :LeekTopping
+                                                                       :MarinatedBoiledEggTopping
+                                                                       :SpringOnionsTopping
+                                                                       :VegetablesTopping
+                                                                     )
+                                                       ]
+                                   ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#TofuTopping
+:TofuTopping rdf:type owl:Class ;
+             rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ToriKatsuMisoRamen
+:ToriKatsuMisoRamen rdf:type owl:Class ;
+                    rdfs:subClassOf :NamedRamen ,
+                                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasBase ;
+                                                             owl:someValuesFrom :MisoBroth
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasBase ;
+                                                             owl:allValuesFrom :MisoBroth
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :ChickenSchnitzelTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :BambooTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :FriedOnionsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :MarinatedBoiledEggTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :SpringOnionsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :VegetablesTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSpiceLevel ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:complementOf :Mild
+                                                        ]
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :ChickenSchnitzelTopping
+                                                                        :BambooTopping
+                                                                        :FriedOnionsTopping
+                                                                        :MarinatedBoiledEggTopping
+                                                                        :SpringOnionsTopping
+                                                                        :VegetablesTopping
+                                                                      )
+                                                        ]
+                                    ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ToriKatsuShoyuRamen
+:ToriKatsuShoyuRamen rdf:type owl:Class ;
+                     rdfs:subClassOf :NamedRamen ,
+                                     [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasBase ;
+                                                              owl:someValuesFrom :ShoyuBroth
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :hasBase ;
+                                                              owl:allValuesFrom :ShoyuBroth
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :ChickenSchnitzelTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :BambooTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :FriedOnionsTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :MarinatedBoiledEggTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :SpringOnionsTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:someValuesFrom :VegetablesTopping
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSpiceLevel ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:complementOf :Spicy
+                                                         ]
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasStandardTopping ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :ChickenSchnitzelTopping
+                                                                         :BambooTopping
+                                                                         :FriedOnionsTopping
+                                                                         :MarinatedBoiledEggTopping
+                                                                         :SpringOnionsTopping
+                                                                         :VegetablesTopping
+                                                                       )
+                                                         ]
+                                     ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganMisoRamen
+:VeganMisoRamen rdf:type owl:Class ;
+                rdfs:subClassOf :NamedRamen ,
+                                [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                         owl:complementOf [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasSpiceLevel ;
+                                                                            owl:allValuesFrom :Mild
+                                                                          ]
+                                                       ]
+                                                       [ rdf:type owl:Class ;
+                                                         owl:complementOf [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasSpiceLevel ;
+                                                                            owl:allValuesFrom :Spicy
+                                                                          ]
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasSpiceLevel ;
+                                                         owl:someValuesFrom :SpiceLevel
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ,
+                                [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasBase ;
+                                                         owl:someValuesFrom :MisoBroth
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasBase ;
+                                                         owl:allValuesFrom :MisoBroth
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :AsparagusTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :BabyCornTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :BellPepperTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :EggplantTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :MushroomsTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :SweetPotatoTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :BambooTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :LeekTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :SpringOnionsTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:someValuesFrom :VegetablesTopping
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasStandardTopping ;
+                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( :AsparagusTopping
+                                                                    :BabyCornTopping
+                                                                    :BellPepperTopping
+                                                                    :EggplantTopping
+                                                                    :MushroomsTopping
+                                                                    :SweetPotatoTopping
+                                                                    :BambooTopping
+                                                                    :LeekTopping
+                                                                    :SpringOnionsTopping
+                                                                    :VegetablesTopping
+                                                                  )
+                                                    ]
+                                ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganShoyuRamen
+:VeganShoyuRamen rdf:type owl:Class ;
+                 rdfs:subClassOf :NamedRamen ,
+                                 [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasBase ;
+                                                          owl:someValuesFrom :ShoyuBroth
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasBase ;
+                                                          owl:allValuesFrom :ShoyuBroth
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :AsparagusTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :BabyCornTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :BellPepperTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :EggplantTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :MushroomsTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :SweetPotatoTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :BambooTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :LeekTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :SpringOnionsTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:someValuesFrom :VegetablesTopping
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasSpiceLevel ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:complementOf :Spicy
+                                                     ]
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasStandardTopping ;
+                                   owl:allValuesFrom [ rdf:type owl:Class ;
+                                                       owl:unionOf ( :AsparagusTopping
+                                                                     :BabyCornTopping
+                                                                     :BellPepperTopping
+                                                                     :EggplantTopping
+                                                                     :MushroomsTopping
+                                                                     :SweetPotatoTopping
+                                                                     :BambooTopping
+                                                                     :LeekTopping
+                                                                     :SpringOnionsTopping
+                                                                     :VegetablesTopping
+                                                                   )
+                                                     ]
+                                 ] .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganTagRamen
+:VeganTagRamen rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry>
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( :MisoBroth
+                                                                                               :ShoyuBroth
+                                                                                             )
+                                                                               ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasStandardTopping ;
+                                                            owl:allValuesFrom :GenericIngredient
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
+               owl:disjointWith :AnimalBasedIngredient ;
+               rdfs:comment "Vegan ramen that does not contain any animal-based, or animal-produced ingredients" .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganTofuMisoRamen
+:VeganTofuMisoRamen rdf:type owl:Class ;
+                    rdfs:subClassOf :NamedRamen ,
+                                    [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                             owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :hasSpiceLevel ;
+                                                                                owl:allValuesFrom :Mild
+                                                                              ]
+                                                           ]
+                                                           [ rdf:type owl:Class ;
+                                                             owl:complementOf [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty :hasSpiceLevel ;
+                                                                                owl:allValuesFrom :Spicy
+                                                                              ]
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasSpiceLevel ;
+                                                             owl:someValuesFrom :SpiceLevel
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ,
+                                    [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasBase ;
+                                                             owl:someValuesFrom :MisoBroth
+                                                           ]
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty :hasBase ;
+                                                             owl:allValuesFrom :MisoBroth
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :BabyCornTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :BellPepperTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :MushroomsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :TofuTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :BambooTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :FriedOnionsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :LeekTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :NoriSheetsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :SeaweedTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :SpringOnionsTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:someValuesFrom :VegetablesTopping
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasStandardTopping ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :BabyCornTopping
+                                                                        :BellPepperTopping
+                                                                        :MushroomsTopping
+                                                                        :TofuTopping
+                                                                        :BambooTopping
+                                                                        :FriedOnionsTopping
+                                                                        :LeekTopping
+                                                                        :NoriSheetsTopping
+                                                                        :SeaweedTopping
+                                                                        :SpringOnionsTopping
+                                                                        :VegetablesTopping
+                                                                      )
+                                                        ]
+                                    ] .
+
+
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/AnimalBasedIngredient
 :AnimalBasedIngredient rdf:type owl:Class ;
                        rdfs:subClassOf :DishIngredient .
@@ -85,7 +1093,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/BambooTopping
 :BambooTopping rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+               rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/BoiledEggTopping
@@ -120,14 +1128,9 @@
                                 :MeatIngredient .
 
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ChilliSauceTopping
-:ChilliSauceTopping rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
-
-
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/CornTopping
 :CornTopping rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+             rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/DishIngredient
@@ -137,7 +1140,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/FishCakeTopping
 :FishCakeTopping rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                 rdfs:subClassOf :FishTopping ,
                                  :FishIngredient .
 
 
@@ -152,12 +1155,13 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/FriedOnionsTopping
 :FriedOnionsTopping rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                    rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/GenericIngredient
 :GenericIngredient rdf:type owl:Class ;
-                   rdfs:subClassOf :DishIngredient .
+                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                                   :DishIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/GrilledChickenTopping
@@ -167,7 +1171,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/LeekTopping
 :LeekTopping rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+             rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/MarinatedBoiledEggTopping
@@ -180,11 +1184,6 @@
                 rdfs:subClassOf :AnimalBasedIngredient .
 
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/MisoRamen
-:MisoRamen rdf:type owl:Class ;
-           rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
-
-
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/NamedRamen
 :NamedRamen rdf:type owl:Class ;
             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> .
@@ -192,7 +1191,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/NoriSheetsTopping
 :NoriSheetsTopping rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                   rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/NoukouChickenRamen
@@ -242,6 +1241,12 @@
                                       owl:someValuesFrom :VegetablesTopping
                                     ] ,
                                     [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasSpiceLevel ;
+                                      owl:allValuesFrom [ rdf:type owl:Class ;
+                                                          owl:complementOf :Spicy
+                                                        ]
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
                                       owl:onProperty :hasStandardTopping ;
                                       owl:allValuesFrom [ rdf:type owl:Class ;
                                                           owl:unionOf ( :BambooTopping
@@ -259,17 +1264,12 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/SeaweedTopping
 :SeaweedTopping rdf:type owl:Class ;
-                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
-
-
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ShoyuRamen
-:ShoyuRamen rdf:type owl:Class ;
-            rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> .
+                rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ShrimpSkewerTopping
 :ShrimpSkewerTopping rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                     rdfs:subClassOf :FishTopping ,
                                      :FishIngredient .
 
 
@@ -280,12 +1280,12 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/SpringOnionsTopping
 :SpringOnionsTopping rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                     rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/VegetablesTopping
 :VegetablesTopping rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                   rdfs:subClassOf :GenericIngredient .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

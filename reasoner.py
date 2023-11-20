@@ -7,14 +7,14 @@ import copy
 def load_onto(ontologyName):
     parser = gateway.getOWLParser()
     formatter = gateway.getSimpleDLFormatter()
-    print("Loading the ontology...")
+    #print("Loading the ontology...")
 
     # load an ontology from a file
     ontology = parser.parseFile(ontologyName)
 
-    print("Loaded the ontology!")
+    #print("Loaded the ontology!")
 
-    print("Converting to binary conjunctions")
+    #print("Converting to binary conjunctions")
     gateway.convertToBinaryConjunctions(ontology)
 
     return ontology
@@ -24,7 +24,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     # IMPORTANT
     # remember to have "" in the class name (NEED TO append FORMAT CHECK)
 
-    print(f'Finding the subsumers of class {className} in ontology {ontologyName}')
+    #print(f'Finding the subsumers of class {className} in ontology {ontologyName}')
 
     elFactory = gateway.getELFactory()
     ontology = load_onto(ontologyName)
@@ -66,7 +66,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
     changed = True
 
     while changed:
-        print('---')
+        #print('---')
         changed = False
 
         # apply all the rules
@@ -75,7 +75,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             updatedConcepts = conceptsByElement[d].copy()
             # Top-rule
             if elFactory.getTop() not in conceptsByElement[d]:
-                print(f'top-rule: appending Top to {d}')
+                #print(f'top-rule: appending Top to {d}')
                 updatedConcepts.append(elFactory.getTop())
                 changed = True
 
@@ -83,7 +83,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             for gci in GCIaxioms:
                 if (gci.lhs() in conceptsByElement[d] and
                         gci.rhs() not in conceptsByElement[d]):
-                    print(f'GCI-rule: appending {formatter.format(gci.rhs())} to {d}')
+                    #print(f'GCI-rule: appending {formatter.format(gci.rhs())} to {d}')
                     updatedConcepts.append(gci.rhs())
                     changed = True
 
@@ -92,11 +92,11 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                 if c.getClass().getSimpleName() == "ConceptConjunction":
                     if c.getConjuncts()[0] not in conceptsByElement[d]:
-                        print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[0])} to {d}')
+                        #print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[0])} to {d}')
                         updatedConcepts.append(c.getConjuncts()[0])
                         changed = True
                     if c.getConjuncts()[1] not in conceptsByElement[d]:
-                        print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[1])} to {d}')
+                        #print(f'CONJ-rule1: appending {formatter.format(c.getConjuncts()[1])} to {d}')
                         updatedConcepts.append(c.getConjuncts()[1])
                         changed = True
 
@@ -107,7 +107,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                 conj = elFactory.getConjunction(c1, c2)
                 if conj in allConcepts and conj not in conceptsByElement[d]:
-                    print(f'CONJ-rule2: appending {formatter.format(conj)}')
+                    #print(f'CONJ-rule2: appending {formatter.format(conj)}')
                     updatedConcepts.append(conj)
                     changed = True
 
@@ -133,8 +133,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                             if (role, r_succ_candidate) not in rolesByElement[d]:
                                 rolesByElement[d].append((role, r_succ_candidate))
                                 changed = True
-                                print(
-                                    f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to {r_succ_candidate}')
+                                #print(f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to {r_succ_candidate}')
                             introduced = True
 
                     if not introduced:
@@ -144,8 +143,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                         dcounter += 1
                         changed = True
                         rolesByElement[d].append((role, r_successor))
-                        print(
-                            f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to NEW element d{dcounter - 1}')
+                        #print( f'E-rule1 introducing a {formatter.format(role)}-successor from {d} to NEW element d{dcounter - 1}')
 
             conceptsByElement[d] = updatedConcepts
             updatedConcepts = conceptsByElement[d].copy()
@@ -172,7 +170,10 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             # probably updates need to happen before
             conceptsByElement[elem] = possibleNewElements[elem]
 
-    print('end')
+    conceptNames = ontology.getConceptNames()
+    for concept in conceptsByElement['d0']:
+        if (concept in conceptNames) or (concept == elFactory.getTop()):
+            print(formatter.format(concept))
 
 
 gateway = JavaGateway()

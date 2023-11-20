@@ -88,17 +88,17 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#AsparagusTopping
 :AsparagusTopping rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                  rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BabyCornTopping
 :BabyCornTopping rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                 rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#BellPepperTopping
 :BellPepperTopping rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                   rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ButatamaMisoRamen
@@ -179,12 +179,12 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#CorianderTopping
 :CorianderTopping rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                  rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#EggplantTopping
 :EggplantTopping rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                 rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishTagRamen
@@ -199,6 +199,11 @@
                                   ] ;
               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
               rdfs:comment "Ramen dishes that includes Fish Toppings (to earn a non-vegan tag the base is not considered)" .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishTopping
+:FishTopping rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FriedChickenTopping
@@ -446,7 +451,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MushroomsTopping
 :MushroomsTopping rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                  rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#PorkSlicesTopping
@@ -588,7 +593,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#SweetPotatoTopping
 :SweetPotatoTopping rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                    rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#TeriyakiChickenTopping
@@ -674,7 +679,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#TofuTopping
 :TofuTopping rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+             rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#ToriKatsuMisoRamen
@@ -889,11 +894,11 @@
                  rdfs:subClassOf :NamedRamen ,
                                  [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                                           owl:onProperty :hasBase ;
-                                                          owl:someValuesFrom :MisoBroth
+                                                          owl:someValuesFrom :ShoyuBroth
                                                         ]
                                                         [ rdf:type owl:Restriction ;
                                                           owl:onProperty :hasBase ;
-                                                          owl:allValuesFrom :MisoBroth
+                                                          owl:allValuesFrom :ShoyuBroth
                                                         ]
                                                       ) ;
                                    rdf:type owl:Class
@@ -964,6 +969,22 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganTagRamen
 :VeganTagRamen rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry>
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasBase ;
+                                                            owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                                 owl:unionOf ( :MisoBroth
+                                                                                               :ShoyuBroth
+                                                                                             )
+                                                                               ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasStandardTopping ;
+                                                            owl:allValuesFrom :GenericIngredient
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
                owl:disjointWith :AnimalBasedIngredient ;
                rdfs:comment "Vegan ramen that does not contain any animal-based, or animal-produced ingredients" .
@@ -1072,7 +1093,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/BambooTopping
 :BambooTopping rdf:type owl:Class ;
-               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+               rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/BoiledEggTopping
@@ -1109,7 +1130,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/CornTopping
 :CornTopping rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+             rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/DishIngredient
@@ -1119,7 +1140,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/FishCakeTopping
 :FishCakeTopping rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                 rdfs:subClassOf :FishTopping ,
                                  :FishIngredient .
 
 
@@ -1134,12 +1155,13 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/FriedOnionsTopping
 :FriedOnionsTopping rdf:type owl:Class ;
-                    rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                    rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/GenericIngredient
 :GenericIngredient rdf:type owl:Class ;
-                   rdfs:subClassOf :DishIngredient .
+                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                                   :DishIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/GrilledChickenTopping
@@ -1149,7 +1171,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/LeekTopping
 :LeekTopping rdf:type owl:Class ;
-             rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+             rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/MarinatedBoiledEggTopping
@@ -1169,7 +1191,7 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/NoriSheetsTopping
 :NoriSheetsTopping rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                   rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/NoukouChickenRamen
@@ -1242,12 +1264,12 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/SeaweedTopping
 :SeaweedTopping rdf:type owl:Class ;
-                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ShrimpSkewerTopping
 :ShrimpSkewerTopping rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> ,
+                     rdfs:subClassOf :FishTopping ,
                                      :FishIngredient .
 
 
@@ -1258,12 +1280,12 @@
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/SpringOnionsTopping
 :SpringOnionsTopping rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                     rdfs:subClassOf :GenericIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/VegetablesTopping
 :VegetablesTopping rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> .
+                   rdfs:subClassOf :GenericIngredient .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

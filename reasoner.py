@@ -59,7 +59,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
         changed = False
 
         # apply all the rules
-        possibleNewElements = dict()  # this if new elements are created. Cannot create new 'keys' while looping
+        extendedModel = conceptsByElement.copy()  # this if new elements are created. Cannot create new 'keys' while looping
         for d in conceptsByElement.keys():
             updatedConcepts = conceptsByElement[d].copy()
             # Top-rule
@@ -108,13 +108,16 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                     introduced = False
 
-                    #this is if no roles have yet been assigned to d, initialize the list to avoid out of bound
+                    '''this is if no roles have yet been assigned to d, initialize the set to avoid out of bound'''
                     if d not in rolesByElement.keys():
                         rolesByElement[d] = set()
-                    # look if already-present elements are suitable candidates
-                    for r_succ_candidate in conceptsByElement.keys():
-                        if filler in conceptsByElement[r_succ_candidate] and not introduced:
-                            # there is an element e with initial concept C --- need to verify if this works as intended
+                    '''look if already-present elements are suitable candidates'''
+                    for r_succ_candidate in extendedModel.keys():
+                        if not introduced and filler in extendedModel[r_succ_candidate]:
+                            '''there is an element e with initial concept C
+                            this could have been previously introduced in any of the d iteration, we thus need to
+                            look into the extendedModel already, otherwise two new elements with coinciding starting 
+                            concepts will be created'''
                             if (role, r_succ_candidate) not in rolesByElement[d]:
                                 rolesByElement[d].add((role, r_succ_candidate))
                                 changed = True
@@ -122,8 +125,8 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
                     if not introduced:
                         r_successor = f'd{dcounter}'
-                        # append a new r successor to d, assign the concept as initial concept
-                        possibleNewElements[r_successor] = {filler}
+                        '''append a new r successor to d, assign the concept as initial concept'''
+                        extendedModel[r_successor] = {filler}
                         dcounter += 1
                         changed = True
                         rolesByElement[d].add((role, r_successor))
@@ -131,29 +134,21 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
             #E-rule 2
             if d in rolesByElement.keys():
                 for role, r_succ_candidate in rolesByElement[d]:
-                    if r_succ_candidate in conceptsByElement.keys():
-                        for r_succ_concept in conceptsByElement[r_succ_candidate]:
-                            newConcept = elFactory.getExistentialRoleRestriction(role, r_succ_concept)
-                            if newConcept not in conceptsByElement[d] and newConcept in allConcepts:
-                                updatedConcepts.add(newConcept)
-                                changed = True
+                    for r_succ_concept in extendedModel[r_succ_candidate]:
+                        newConcept = elFactory.getExistentialRoleRestriction(role, r_succ_concept)
+                        if newConcept not in conceptsByElement[d] and newConcept in allConcepts:
+                            updatedConcepts.add(newConcept)
+                            changed = True
 
-                    else:
-                        #this is because a new element might have been introduced, but the dict has not been updated yet
-                        for r_succ_concept in possibleNewElements[r_succ_candidate]:
-                            newConcept = elFactory.getExistentialRoleRestriction(role, r_succ_concept)
-                            if newConcept not in conceptsByElement[d] and newConcept in allConcepts:
-                                updatedConcepts.add(newConcept)
-                                changed = True
             # disj rule
 
             # only rule
 
-            conceptsByElement[d] = updatedConcepts
+            extendedModel[d] = updatedConcepts
 
 
-        for elem in possibleNewElements.keys():
-            conceptsByElement[elem] = possibleNewElements[elem]
+        conceptsByElement = extendedModel
+
 
     print(f'elapsed: {time.time() - t}')
     conceptNames = ontology.getConceptNames()
@@ -166,7 +161,7 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
 gateway = JavaGateway()
 #subsumers(sys.argv[1],sys.argv[2])
-#subsumers('vuramen.ttl', 'VeganTofuMisoRamen')
+#subsumers('vuramen.ttl', 'VeganTagRamen')
 #subsumers('ontologies/Project-1/eco.evidence-and-conclusion-ontology.49.owl.xml', 'ECO_0000003')
 subsumers()
 

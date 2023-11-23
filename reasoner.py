@@ -149,19 +149,22 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
 
         conceptsByElement = extendedModel
 
-
-    print(f'elapsed: {time.time() - t}')
+    t1 = time.time()
+    #print(f'elapsed: {t1 - t}')
     conceptNames = ontology.getConceptNames()
+    out = []
     for concept in conceptsByElement['d0']:
         #print(formatter.format(concept))
         if (concept in conceptNames) or (concept == elFactory.getTop()):
             #to verify if we want to add also non 'named' concepts
-            print(formatter.format(concept))
+            #print(formatter.format(concept))
+            out.append(concept)
+    return t1-t, out
 
 
 gateway = JavaGateway()
 #subsumers(sys.argv[1],sys.argv[2])
 #subsumers('vuramen.ttl', 'VeganTagRamen')
 #subsumers('ontologies/Project-1/eco.evidence-and-conclusion-ontology.49.owl.xml', 'ECO_0000003')
-subsumers()
+#subsumers()
 

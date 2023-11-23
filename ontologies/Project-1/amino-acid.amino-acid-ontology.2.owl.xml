@@ -1,0 +1,2003 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.co-ode.org/ontologies/amino-acid/2006/05/18/amino-acid.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.co-ode.org/ontologies/amino-acid/2006/05/18/amino-acid.owl">
+    <Prefix name="" IRI="http://www.co-ode.org/ontologies/amino-acid/2006/05/18/amino-acid.owl"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#A"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aliphatic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AliphaticAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Aromatic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AromaticAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Charge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#D"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#E"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#F"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#G"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#H"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrophilic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrophobic"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hydrophobicity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#I"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#K"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#L"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Large"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#M"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#N"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Negative"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NegativeChargedAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Neutral"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Non-Polar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#P"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Polar"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Polarity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Positive"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PositiveChargedAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Q"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#R"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RefiningFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#S"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SideChainStructure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Size"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Small"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SpecificAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#T"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Tiny"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TinyPolarAminoAcid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#V"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#W"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Y"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCharge"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasHydrophobicity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPolarity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSideChainStructure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSize"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <Class IRI="#AliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectComplementOf>
+            <Class IRI="#G"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#A"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aliphatic"/>
+        <ObjectComplementOf>
+            <Class IRI="#Aromatic"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AliphaticAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aliphatic"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AminoAcid"/>
+        <Class IRI="#SpecificAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AminoAcid"/>
+        <ObjectUnionOf>
+            <Class IRI="#A"/>
+            <Class IRI="#C"/>
+            <Class IRI="#D"/>
+            <Class IRI="#E"/>
+            <Class IRI="#F"/>
+            <Class IRI="#G"/>
+            <Class IRI="#H"/>
+            <Class IRI="#I"/>
+            <Class IRI="#K"/>
+            <Class IRI="#L"/>
+            <Class IRI="#M"/>
+            <Class IRI="#N"/>
+            <Class IRI="#P"/>
+            <Class IRI="#Q"/>
+            <Class IRI="#R"/>
+            <Class IRI="#S"/>
+            <Class IRI="#T"/>
+            <Class IRI="#V"/>
+            <Class IRI="#W"/>
+            <Class IRI="#Y"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Aromatic"/>
+        <ObjectComplementOf>
+            <Class IRI="#Aliphatic"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#AromaticAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aromatic"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Charge"/>
+        <Class IRI="#RefiningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Charge"/>
+        <ObjectUnionOf>
+            <Class IRI="#Negative"/>
+            <Class IRI="#Neutral"/>
+            <Class IRI="#Positive"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectComplementOf>
+            <Class IRI="#E"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Negative"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Negative"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#D"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectComplementOf>
+            <Class IRI="#D"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Negative"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Negative"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#E"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectComplementOf>
+            <Class IRI="#W"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#F"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectComplementOf>
+            <Class IRI="#A"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#G"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <Class IRI="#AromaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Positive"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Positive"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#H"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrophilic"/>
+        <ObjectComplementOf>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrophobic"/>
+        <ObjectComplementOf>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrophobicity"/>
+        <Class IRI="#RefiningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hydrophobicity"/>
+        <ObjectUnionOf>
+            <Class IRI="#Hydrophilic"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectComplementOf>
+            <Class IRI="#L"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectComplementOf>
+            <Class IRI="#M"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#I"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectComplementOf>
+            <Class IRI="#R"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Positive"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Positive"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#K"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectComplementOf>
+            <Class IRI="#I"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectComplementOf>
+            <Class IRI="#M"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#L"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Large"/>
+        <ObjectComplementOf>
+            <Class IRI="#Small"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Large"/>
+        <ObjectComplementOf>
+            <Class IRI="#Tiny"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aliphatic"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSize"/>
+                <Class IRI="#Large"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectComplementOf>
+            <Class IRI="#I"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectComplementOf>
+            <Class IRI="#L"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#N"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Negative"/>
+        <ObjectComplementOf>
+            <Class IRI="#Neutral"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Negative"/>
+        <ObjectComplementOf>
+            <Class IRI="#Positive"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NegativeChargedAminoAcid"/>
+        <Class IRI="#AliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#NegativeChargedAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasCharge"/>
+                <Class IRI="#Negative"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neutral"/>
+        <ObjectComplementOf>
+            <Class IRI="#Negative"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Neutral"/>
+        <ObjectComplementOf>
+            <Class IRI="#Positive"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Non-Polar"/>
+        <ObjectComplementOf>
+            <Class IRI="#Polar"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectComplementOf>
+            <Class IRI="#V"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#P"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Polar"/>
+        <ObjectComplementOf>
+            <Class IRI="#Non-Polar"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Polarity"/>
+        <Class IRI="#RefiningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Polarity"/>
+        <ObjectUnionOf>
+            <Class IRI="#Non-Polar"/>
+            <Class IRI="#Polar"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Positive"/>
+        <ObjectComplementOf>
+            <Class IRI="#Negative"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Positive"/>
+        <ObjectComplementOf>
+            <Class IRI="#Neutral"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PositiveChargedAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasCharge"/>
+                <Class IRI="#Positive"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Q"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <Class IRI="#PositiveChargedAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectComplementOf>
+            <Class IRI="#K"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Positive"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#R"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <Class IRI="#TinyPolarAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectComplementOf>
+            <Class IRI="#T"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#S"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SideChainStructure"/>
+        <Class IRI="#RefiningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SideChainStructure"/>
+        <ObjectUnionOf>
+            <Class IRI="#Aliphatic"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Size"/>
+        <Class IRI="#RefiningFeature"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Size"/>
+        <ObjectUnionOf>
+            <Class IRI="#Large"/>
+            <Class IRI="#Small"/>
+            <Class IRI="#Tiny"/>
+        </ObjectUnionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Small"/>
+        <ObjectComplementOf>
+            <Class IRI="#Large"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Small"/>
+        <ObjectComplementOf>
+            <Class IRI="#Tiny"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SpecificAminoAcid"/>
+        <Class IRI="#AminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <Class IRI="#TinyPolarAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectComplementOf>
+            <Class IRI="#S"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophilic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#T"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Tiny"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tiny"/>
+        <ObjectComplementOf>
+            <Class IRI="#Large"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Tiny"/>
+        <ObjectComplementOf>
+            <Class IRI="#Small"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TinyPolarAminoAcid"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasPolarity"/>
+                <Class IRI="#Polar"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSize"/>
+                <Class IRI="#Tiny"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectComplementOf>
+            <Class IRI="#P"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aliphatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#V"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Small"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <Class IRI="#AromaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectComplementOf>
+            <Class IRI="#F"/>
+        </ObjectComplementOf>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Non-Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#W"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <Class IRI="#AromaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasCharge"/>
+            <Class IRI="#Neutral"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasHydrophobicity"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasPolarity"/>
+            <Class IRI="#Polar"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSideChainStructure"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Y"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSize"/>
+            <Class IRI="#Large"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasCharge"/>
+                <Class IRI="#Negative"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#NegativeChargedAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasCharge"/>
+                <Class IRI="#Positive"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#PositiveChargedAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasPolarity"/>
+                <Class IRI="#Polar"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSize"/>
+                <Class IRI="#Tiny"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#TinyPolarAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aliphatic"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#AliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aliphatic"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSize"/>
+                <Class IRI="#Large"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#LargeAliphaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectIntersectionOf>
+            <Class IRI="#AminoAcid"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSideChainStructure"/>
+                <Class IRI="#Aromatic"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+        <Class IRI="#AromaticAminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#A"/>
+            <Class IRI="#C"/>
+            <Class IRI="#D"/>
+            <Class IRI="#E"/>
+            <Class IRI="#F"/>
+            <Class IRI="#G"/>
+            <Class IRI="#H"/>
+            <Class IRI="#I"/>
+            <Class IRI="#K"/>
+            <Class IRI="#L"/>
+            <Class IRI="#M"/>
+            <Class IRI="#N"/>
+            <Class IRI="#P"/>
+            <Class IRI="#Q"/>
+            <Class IRI="#R"/>
+            <Class IRI="#S"/>
+            <Class IRI="#T"/>
+            <Class IRI="#V"/>
+            <Class IRI="#W"/>
+            <Class IRI="#Y"/>
+        </ObjectUnionOf>
+        <Class IRI="#AminoAcid"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Aliphatic"/>
+            <Class IRI="#Aromatic"/>
+        </ObjectUnionOf>
+        <Class IRI="#SideChainStructure"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Hydrophilic"/>
+            <Class IRI="#Hydrophobic"/>
+        </ObjectUnionOf>
+        <Class IRI="#Hydrophobicity"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Large"/>
+            <Class IRI="#Small"/>
+            <Class IRI="#Tiny"/>
+        </ObjectUnionOf>
+        <Class IRI="#Size"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Negative"/>
+            <Class IRI="#Neutral"/>
+            <Class IRI="#Positive"/>
+        </ObjectUnionOf>
+        <Class IRI="#Charge"/>
+    </SubClassOf>
+    <SubClassOf>
+        <ObjectUnionOf>
+            <Class IRI="#Non-Polar"/>
+            <Class IRI="#Polar"/>
+        </ObjectUnionOf>
+        <Class IRI="#Polarity"/>
+    </SubClassOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasCharge"/>
+        <Class IRI="#AminoAcid"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasHydrophobicity"/>
+        <Class IRI="#AminoAcid"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasPolarity"/>
+        <Class IRI="#AminoAcid"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSideChainStructure"/>
+        <Class IRI="#AminoAcid"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasSize"/>
+        <Class IRI="#AminoAcid"/>
+    </ObjectPropertyDomain>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 0.1.0-SNAPSHOT) https://github.com/owlcs/owlapi/ -->
+
+

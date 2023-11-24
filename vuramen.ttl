@@ -44,15 +44,6 @@
 #    Classes
 #################################################################
 
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Dessert
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Dessert> rdf:type owl:Class ;
-                                                                     rdfs:subClassOf :Food .
-
-
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Drink
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Drink> rdf:type owl:Class .
-
-
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase> rdf:type owl:Class ;
                                                                        rdfs:subClassOf :DishIngredient .
@@ -70,6 +61,10 @@
                                                                                           owl:someValuesFrom <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenBase>
                                                                                         ] ,
                                                                                         [ rdf:type owl:Restriction ;
+                                                                                          owl:onProperty :hasIngredient ;
+                                                                                          owl:someValuesFrom :Noodles
+                                                                                        ] ,
+                                                                                        [ rdf:type owl:Restriction ;
                                                                                           owl:onProperty :hasTopping ;
                                                                                           owl:someValuesFrom <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping>
                                                                                         ] ;
@@ -79,11 +74,6 @@
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping
 <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenTopping> rdf:type owl:Class ;
                                                                           rdfs:subClassOf :DishIngredient .
-
-
-###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Side
-<http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#Side> rdf:type owl:Class ;
-                                                                  rdfs:subClassOf :Food .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#AsparagusTopping
@@ -198,7 +188,7 @@
                                     rdf:type owl:Class
                                   ] ;
               rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
-              rdfs:comment "Ramen dishes that includes Fish Toppings (to earn a non-vegan tag the base is not considered)" .
+              rdfs:comment "Ramen dishes that include Fish Toppings (to earn a non-vegan tag the base is not considered)" .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#FishTopping
@@ -434,12 +424,6 @@
                                                  ]
                                                ) ;
                             rdf:type owl:Class
-                          ] ,
-                          [ rdf:type owl:Class ;
-                            owl:complementOf [ rdf:type owl:Restriction ;
-                                               owl:onProperty :hasSpiceLevel ;
-                                               owl:allValuesFrom :Spicy
-                                             ]
                           ] ;
       rdfs:subClassOf :SpiceLevel .
 
@@ -452,6 +436,11 @@
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#MushroomsTopping
 :MushroomsTopping rdf:type owl:Class ;
                   rdfs:subClassOf :GenericIngredient .
+
+
+###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#Noodles
+:Noodles rdf:type owl:Class ;
+         rdfs:subClassOf :DishIngredient .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#PorkSlicesTopping
@@ -581,12 +570,6 @@
                                                   ]
                                                 ) ;
                              rdf:type owl:Class
-                           ] ,
-                           [ rdf:type owl:Class ;
-                             owl:complementOf [ rdf:type owl:Restriction ;
-                                                owl:onProperty :hasSpiceLevel ;
-                                                owl:allValuesFrom :Mild
-                                              ]
                            ] ;
        rdfs:subClassOf :SpiceLevel .
 
@@ -986,8 +969,7 @@
                                      rdf:type owl:Class
                                    ] ;
                rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
-               owl:disjointWith :AnimalBasedIngredient ;
-               rdfs:comment "Vegan ramen that does not contain any animal-based, or animal-produced ingredients" .
+               rdfs:comment "Ramen dishes that do not contain any animal-based, or animal-produced ingredients" .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen#VeganTofuMisoRamen
@@ -1119,7 +1101,7 @@
                                        rdf:type owl:Class
                                      ] ;
                  rdfs:subClassOf <http://www.semanticweb.org/giaco/ontologies/2023/10/VUrame#RamenEntry> ;
-                 rdfs:comment "Ramen dishes that mainly include Chicken Toppings (to earn a non-vegan tag the base is not considered)" .
+                 rdfs:comment "Ramen dishes that include Chicken Toppings (to earn a non-vegan tag the base is not considered)" .
 
 
 ###  http://www.semanticweb.org/giaco/ontologies/2023/10/VUramen/ChickenTopping

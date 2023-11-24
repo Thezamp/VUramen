@@ -166,5 +166,6 @@ gateway = JavaGateway()
 #subsumers(sys.argv[1],sys.argv[2])
 #subsumers('vuramen.ttl', 'VeganTagRamen')
 #subsumers('ontologies/Project-1/eco.evidence-and-conclusion-ontology.49.owl.xml', 'ECO_0000003')
-#subsumers()
+subsumers(className='"RocketTopping"')
+
 

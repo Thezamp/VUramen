@@ -15,6 +15,8 @@ def load_onto(ontologyName):
 
 
 def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
+    # IMPORTANT
+    # remember to have "" in the class name (NEED TO append FORMAT CHECK)
 
     elFactory = gateway.getELFactory()
     ontology = load_onto(ontologyName)
@@ -83,6 +85,12 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                         updatedConcepts.add(c.getConjuncts()[1])
                         changed = True
 
+            #this ensures that new info from the rules application are immediately integrated
+            # - but maybe slows down the process
+            # - opt 1: maybe update only at the end, this will requires more loops but less assignments
+            # - opt 2: loop on find a way to loop only on a 'snapshot' shallow copy of the updatedConcepts, while actually changing the
+            # original -- probably doesnt work
+
             # n-rule 2
             for c1, c2 in itertools.permutations(conceptsByElement[d], 2):
 
@@ -132,26 +140,32 @@ def subsumers(ontologyName='pizza.owl', className='"Margherita"'):
                             updatedConcepts.add(newConcept)
                             changed = True
 
+            # disj rule
+
+            # only rule
 
             extendedModel[d] = updatedConcepts
 
 
         conceptsByElement = extendedModel
 
-
-
+    t1 = time.time()
+    #print(f'elapsed: {t1 - t}')
     conceptNames = ontology.getConceptNames()
-
+    out = []
     for concept in conceptsByElement['d0']:
-
-        if (concept in conceptNames):
+        #print(formatter.format(concept))
+        if (concept in conceptNames) or (concept == elFactory.getTop()):
             #to verify if we want to add also non 'named' concepts
-            print(formatter.format(concept))
-            #sys.stdout.write(formatter.format(concept))
+            #print(formatter.format(concept))
+            out.append(concept)
+    return t1-t, out
 
 
 gateway = JavaGateway()
-subsumers(sys.argv[1],sys.argv[2])
-
+#subsumers(sys.argv[1],sys.argv[2])
+#subsumers('vuramen.ttl', 'VeganTagRamen')
+#subsumers('ontologies/Project-1/eco.evidence-and-conclusion-ontology.49.owl.xml', 'ECO_0000003')
+subsumers(className='"RocketTopping"')
 
 
